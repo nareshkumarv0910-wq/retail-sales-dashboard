@@ -7,6 +7,7 @@ from datetime import date
 
 st.set_page_config(page_title="Retail Sales Dashboard", page_icon="📊", layout="wide")
 
+# ------------------ BACKGROUND IMAGE ------------------
 st.markdown("""
     <style>
         .stApp {
@@ -15,13 +16,6 @@ st.markdown("""
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-color: rgba(10, 15, 28, 0.85);
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-
-        .stApp {
             background-color: rgba(10, 15, 28, 0.85);
         }
     </style>
