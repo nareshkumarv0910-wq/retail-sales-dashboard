@@ -5,6 +5,7 @@ import plotly.express as px
 from datetime import date
 
 st.set_page_config(page_title="Retail Sales Dashboard", page_icon="📊", layout="wide")
+
 https://images.unsplash.com/photo-1612832021046-0c5f7e3e5f4e?auto=format&fit=crop&w=1920&q=80
 st.markdown("""
     <style>
