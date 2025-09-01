@@ -214,4 +214,8 @@ st.markdown("""
         <div class="footer-links">
             📞 +91 80729 25243 |
             <a href='https://www.linkedin.com/in/naresh-kumar-b67b0b326' target='_blank'>LinkedIn</a> |
-            <a
+            <a href='https://github.com/nareshkumarv0910-wq' target='_blank'>GitHub</a>
+        </div>
+        <div class="footer-badge">Built using Streamlit, Plotly & Python • Chennai, India</div>
+    </div>
+""", unsafe_allow_html=True)
