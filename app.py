@@ -1,3 +1,4 @@
+# ------------------ SETUP ------------------
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -6,7 +7,7 @@ from datetime import date
 
 st.set_page_config(page_title="Retail Sales Dashboard", page_icon="📊", layout="wide")
 
-https://images.unsplash.com/photo-1612832021046-0c5f7e3e5f4e?auto=format&fit=crop&w=1920&q=80
+# ------------------ BACKGROUND IMAGE ------------------
 st.markdown("""
     <style>
         body {
@@ -22,7 +23,6 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
-
 
 # ------------------ HEADER ------------------
 st.markdown("""
@@ -204,8 +204,4 @@ st.markdown("""
         <div class="footer-links">
             📞 +91 80729 25243 |
             <a href='https://www.linkedin.com/in/naresh-kumar-b67b0b326' target='_blank'>LinkedIn</a> |
-            <a href='https://github.com/nareshkumarv0910-wq' target='_blank'>GitHub</a>
-        </div>
-        <div class="footer-badge">Built using Streamlit, Plotly & Python • Chennai, India</div>
-    </div>
-""", unsafe_allow_html=True)
+            <a
