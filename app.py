@@ -38,6 +38,16 @@ st.markdown("""
     <div class="custom-header">Naresh Kumar — Retail Insights Dashboard</div>
 """, unsafe_allow_html=True)
 
+# ------------------ EMBEDDED IMAGE ------------------
+st.markdown("""
+    <div style='text-align: center; margin-bottom: 30px;'>
+        <img src='https://images.unsplash.com/photo-1612832021046-0c5f7e3e5f4e?auto=format&fit=crop&w=1920&q=80'
+             width='850'
+             style='border-radius:12px; box-shadow:0 0 12px #60a5fa;'/>
+        <div style='font-size:14px; color:#94a3b8; margin-top:8px;'>Retail Intelligence • Powered by Naresh Kumar</div>
+    </div>
+""", unsafe_allow_html=True)
+
 # ------------------ DATA ------------------
 @st.cache_data
 def load_data(n_rows=2500, seed=42):
