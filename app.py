@@ -5,6 +5,23 @@ import plotly.express as px
 from datetime import date
 
 st.set_page_config(page_title="Retail Sales Dashboard", page_icon="📊", layout="wide")
+https://images.unsplash.com/photo-1612832021046-0c5f7e3e5f4e?auto=format&fit=crop&w=1920&q=80
+st.markdown("""
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1612832021046-0c5f7e3e5f4e?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .stApp {
+            background-color: rgba(10, 15, 28, 0.85);
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 
 # ------------------ HEADER ------------------
 st.markdown("""
