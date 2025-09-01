@@ -10,16 +10,22 @@ st.set_page_config(page_title="Retail Sales Dashboard", page_icon="📊", layout
 # ------------------ BACKGROUND IMAGE ------------------
 st.markdown("""
     <style>
-        .stApp {
-            background-image: url('https://images.unsplash.com/photo-1612832021046-0c5f7e3e5f4e?auto=format&fit=crop&w=1920&q=80');
+        .main {
+            background-image: url("https://images.unsplash.com/photo-1612832021046-0c5f7e3e5f4e?auto=format&fit=crop&w=1920&q=80");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+        }
+
+        .block-container {
             background-color: rgba(10, 15, 28, 0.85);
+            padding: 2rem;
+            border-radius: 12px;
         }
     </style>
 """, unsafe_allow_html=True)
+
 
 # ------------------ HEADER ------------------
 st.markdown("""
