@@ -1,4 +1,3 @@
-# ------------------ SETUP ------------------
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -7,7 +6,7 @@ from datetime import date
 
 st.set_page_config(page_title="Retail Sales Dashboard", page_icon="📊", layout="wide")
 
-# ------------------ CUSTOM HEADER ------------------
+# ------------------ HEADER ------------------
 st.markdown("""
     <style>
         .custom-header {
@@ -21,19 +20,20 @@ st.markdown("""
     <div class="custom-header">Naresh Kumar — Retail Insights Dashboard</div>
 """, unsafe_allow_html=True)
 
-# ------------------ DATA GENERATION ------------------
+# ------------------ DATA ------------------
 @st.cache_data
-def load_data(n_rows: int = 2500, seed: int = 42) -> pd.DataFrame:
+def load_data(n_rows=2500, seed=42):
     rng = np.random.default_rng(seed)
     dates = pd.date_range("2024-01-01", "2024-12-31", freq="D")
     regions = ["North", "South", "East", "West"]
     segments = ["Consumer", "Corporate", "Home Office"]
+    products = ["Alpha", "Bravo", "Cobalt", "Delta", "Echo"]
 
     df = pd.DataFrame({
         "OrderDate": rng.choice(dates, size=n_rows),
         "Region": rng.choice(regions, size=n_rows),
         "Segment": rng.choice(segments, size=n_rows),
-        "Product": rng.choice(["Alpha", "Bravo", "Cobalt", "Delta", "Echo"], size=n_rows),
+        "Product": rng.choice(products, size=n_rows),
         "Quantity": rng.integers(1, 6, size=n_rows),
         "Discount": np.round(rng.uniform(0, 0.3, size=n_rows), 2)
     })
@@ -43,16 +43,14 @@ def load_data(n_rows: int = 2500, seed: int = 42) -> pd.DataFrame:
     margin = 0.22 - (df["Discount"] * 0.45)
     noise = rng.normal(0, 8, size=n_rows)
     df["Profit"] = np.round(df["Sales"] * margin + noise, 2)
-
     df["OrderDate"] = pd.to_datetime(df["OrderDate"])
     df["Month"] = df["OrderDate"].dt.to_period("M").dt.to_timestamp()
     return df
 
 data = load_data()
 
-# ------------------ SIDEBAR FILTERS ------------------
+# ------------------ FILTERS ------------------
 st.sidebar.header("🔍 Filters")
-
 min_d, max_d = data["OrderDate"].min().date(), data["OrderDate"].max().date()
 date_range = st.sidebar.date_input("Date range", value=(min_d, max_d), min_value=min_d, max_value=max_d)
 
@@ -77,9 +75,8 @@ if df.empty:
 
 # ------------------ KPIs ------------------
 total_sales = float(df["Sales"].sum())
-orders = int(len(df))
-aov = float(total_sales / orders) if orders else 0.0
-
+orders = len(df)
+aov = total_sales / orders if orders else 0.0
 monthly = df.groupby("Month", as_index=False)["Sales"].sum().sort_values("Month")
 mom = (monthly["Sales"].iloc[-1] - monthly["Sales"].iloc[-2]) / monthly["Sales"].iloc[-2] if len(monthly) >= 2 else np.nan
 
@@ -93,7 +90,7 @@ k2.metric("📦 Orders", f"{orders:,}")
 k3.metric("🧾 Avg Order Value", f"₹{aov:,.0f}")
 k4.metric("📈 MoM Growth", "—" if np.isnan(mom) else f"{mom:.1%}")
 
-# ------------------ DOWNLOAD BUTTON ------------------
+# ------------------ DOWNLOAD ------------------
 st.download_button(
     label="📥 Download Filtered Data",
     data=df.to_csv(index=False).encode("utf-8"),
@@ -138,7 +135,7 @@ fig_prod = px.bar(prod, x="Product", y="Sales", text_auto=".2s")
 fig_prod.update_layout(showlegend=False)
 st.plotly_chart(fig_prod, use_container_width=True)
 
-# ------------------ SIGNATURE FOOTER ------------------
+# ------------------ FOOTER ------------------
 st.markdown("""
     <style>
         .footer-container {
@@ -191,4 +188,6 @@ st.markdown("""
             <a href='https://www.linkedin.com/in/naresh-kumar-b67b0b326' target='_blank'>LinkedIn</a> |
             <a href='https://github.com/nareshkumarv0910-wq' target='_blank'>GitHub</a>
         </div>
-        <div class="footer-badge">Built using Streamlit, Plotly & Python • Chennai, India
+        <div class="footer-badge">Built using Streamlit, Plotly & Python • Chennai, India</div>
+    </div>
+""", unsafe_allow_html=True)
