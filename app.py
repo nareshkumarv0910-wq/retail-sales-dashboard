@@ -14,12 +14,11 @@ st.markdown("""
             text-align: center;
             font-size: 32px;
             font-weight: 700;
-            color: #4ade80;
-            text-shadow: 0 0 10px #4ade80;
+            color: #93c5fd;
             margin-bottom: 20px;
         }
     </style>
-    <div class="custom-header">🚀 Naresh Kumar — Retail Insights Dashboard</div>
+    <div class="custom-header">Naresh Kumar — Retail Insights Dashboard</div>
 """, unsafe_allow_html=True)
 
 # ------------------ DATA GENERATION ------------------
@@ -32,8 +31,8 @@ def load_data(n_rows: int = 2500, seed: int = 42) -> pd.DataFrame:
 
     df = pd.DataFrame({
         "OrderDate": rng.choice(dates, size=n_rows),
-        "Region": rng.choice(regions, size=n_rows, p=[0.28, 0.24, 0.24, 0.24]),
-        "Segment": rng.choice(segments, size=n_rows, p=[0.6, 0.25, 0.15]),
+        "Region": rng.choice(regions, size=n_rows),
+        "Segment": rng.choice(segments, size=n_rows),
         "Product": rng.choice(["Alpha", "Bravo", "Cobalt", "Delta", "Echo"], size=n_rows),
         "Quantity": rng.integers(1, 6, size=n_rows),
         "Discount": np.round(rng.uniform(0, 0.3, size=n_rows), 2)
@@ -153,26 +152,25 @@ st.markdown("""
         .footer-name {
             font-size: 20px;
             font-weight: 600;
-            color: #4ade80;
-            text-shadow: 0 0 8px #4ade80;
+            color: #60a5fa;
         }
 
         .footer-links a {
             margin: 0 12px;
             text-decoration: none;
             font-size: 16px;
-            color: #60a5fa;
+            color: #93c5fd;
             transition: all 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: #93c5fd;
-            text-shadow: 0 0 6px #93c5fd;
+            color: #bfdbfe;
+            text-shadow: 0 0 6px #bfdbfe;
         }
 
         .footer-line {
             height: 2px;
-            background: linear-gradient(to right, #4ade80, #60a5fa);
+            background: linear-gradient(to right, #60a5fa, #93c5fd);
             margin: 30px auto 20px;
             width: 60%;
             border-radius: 4px;
@@ -190,9 +188,7 @@ st.markdown("""
         <div class="footer-name">Naresh Kumar — Data Analyst</div>
         <div class="footer-links">
             📞 +91 80729 25243 |
-            <a href='https://www.linkedin.com/in/naresh-kumar-b67b0b326' target='_blank'>🔗 LinkedIn</a> |
-            <a href='https://github.com/nareshkumarv0910-wq' target='_blank'>💻 GitHub</a>
+            <a href='https://www.linkedin.com/in/naresh-kumar-b67b0b326' target='_blank'>LinkedIn</a> |
+            <a href='https://github.com/nareshkumarv0910-wq' target='_blank'>GitHub</a>
         </div>
-        <div class="footer-badge">Made with ❤️ using Streamlit, Plotly & Python • Chennai, India</div>
-    </div>
-""", unsafe_allow_html=True)
+        <div class="footer-badge">Built using Streamlit, Plotly & Python • Chennai, India
